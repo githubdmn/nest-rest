@@ -17,13 +17,13 @@
         "tsConfigPath": "apps/application/tsconfig.app.json"
       }
     },
-    "app01": {
+    "dummy22-01": {
       "type": "application",
-      "root": "apps/app01",
+      "root": "apps/dummy22-01",
       "entryFile": "main",
-      "sourceRoot": "apps/app01/src",
+      "sourceRoot": "apps/dummy22-01/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/app01/tsconfig.app.json"
+        "tsConfigPath": "apps/dummy22-01/tsconfig.app.json"
       }
     }
   }
