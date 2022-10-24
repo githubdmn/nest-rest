@@ -5,7 +5,7 @@ export class ConfService {
   constructor() {}
   getValues() {
     return {
-      property: "value",
+      env: "dev",
     };
   }
 }
