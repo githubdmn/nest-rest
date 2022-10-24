@@ -1,0 +1,52 @@
+version: "3.3"
+
+# networks:
+#   shared-network:
+#     driver: bridge
+
+services:
+  # backend:
+  #   build:
+  #     context: ./
+  #     dockerfile: ./Dockerfile
+  #   environment:
+  #     MONGO_DB_HOST: ${DB_HOST}
+  #     MONGO_DB_PORT: ${DB_PORT}
+  #     REDIS_HOST: ${REDIS_HOST}
+  #     REDIS_PORT: ${REDIS_PORT}
+  #     NODE_ENV: development
+  #   command: bash -c "node dist/main.js"
+  #   env_file:
+  #       - .env
+  #   networks:
+  #     - shared-network
+  #   ports:
+  #     - ${PORT}:${PORT} # dockerHostPort:dockerContainerPort
+  #   depends_on:
+  #     - mongo_db
+  #     - redis_cache
+
+  mongodb_container:
+    image: mongo:latest
+    # networks:
+    #   - shared-network
+    volumes:
+      - ./.mongo:/data/db
+    env_file:
+      - .env
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
+    restart: always
+
+  # cache_redis:
+  #   container_name: redis_cache
+  #   image: "redis:alpine"
+  #   # networks:
+  #   #   - shared-network
+  #   env_file:
+  #     - .env
+  #   ports:
+  #     - ${REDIS_PORT}:${REDIS_PORT}
