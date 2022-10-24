@@ -1,11 +1,16 @@
 import { Module } from '@nestjs/common';
-import { Dummy2201Controller } from './dummy22-01.controller';
-import { Dummy2201Service } from './dummy22-01.service';
 import { PostModule } from './post/post.module';
+import { MongooseModule } from '@nestjs/mongoose';
+import { env } from './conf';
 
 @Module({
-  imports: [PostModule],
-  controllers: [Dummy2201Controller],
-  providers: [Dummy2201Service],
+  imports: [
+    PostModule,
+    MongooseModule.forRoot(
+      `mongodb://${env.mongouser}:${env.mongopass}@localhost:${env.mongoport}/${env.mongoAuth}`,
+    ),
+  ],
+  controllers: [],
+  providers: [],
 })
 export class Dummy2201Module {}
