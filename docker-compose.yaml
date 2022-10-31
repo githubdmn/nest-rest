@@ -1,4 +1,4 @@
-version: "3.3"
+version: '3.3'
 
 # networks:
 #   shared-network:
@@ -41,12 +41,12 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${DB_PASSWORD}
     restart: always
 
-  # cache_redis:
-  #   container_name: redis_cache
-  #   image: "redis:alpine"
-  #   # networks:
-  #   #   - shared-network
-  #   env_file:
-  #     - .env
-  #   ports:
-  #     - ${REDIS_PORT}:${REDIS_PORT}
+  cache_redis:
+    container_name: redis_cache
+    image: 'redis:alpine'
+    # networks:
+    #   - shared-network
+    env_file:
+      - .env
+    ports:
+      - ${REDIS_PORT}:${REDIS_PORT}

@@ -8,6 +8,7 @@ import { env } from './conf';
     PostModule,
     MongooseModule.forRoot(
       `mongodb://${env.mongouser}:${env.mongopass}@localhost:${env.mongoport}/${env.mongoAuth}`,
+      { dbName: env.mongodb },
     ),
   ],
   controllers: [],

@@ -5,5 +5,7 @@ export default {
   mongopass: 'pass',
   mongoport: 27017,
   mongoAuth: '?authMechanism=DEFAULT',
-  mongodb: 'test',
+  mongodb: 'dummy22',
+  redishost: 'localhost',
+  redisport: 6379,
 };
