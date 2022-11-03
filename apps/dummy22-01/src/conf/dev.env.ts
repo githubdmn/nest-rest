@@ -12,4 +12,5 @@ export default {
   mongoAuth: '?authMechanism=DEFAULT',
   mongodb: 'dummy22',
   redisport: 6379,
+  dbtype: 'sadf',
 };

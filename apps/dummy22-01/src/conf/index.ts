@@ -1,3 +1,3 @@
-import env from './envvars';
+import env from './dev.env';
 
 export { env };
