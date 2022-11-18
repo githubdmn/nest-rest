@@ -39,20 +39,20 @@ services:
     volumes:
       - ./pgdata:/var/lib/postgresql/data
 
-  mongodb:
-    image: mongo:latest
-    # networks:
-    #   - shared-network
-    volumes:
-      - ./.mongo:/data/db
-    env_file:
-      - .env
-    ports:
-      - ${MONGO_PORT}:${MONGO_PORT}
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
-    restart: always
+  # mongodb:
+  #   image: mongo:latest
+  #   # networks:
+  #   #   - shared-network
+  #   volumes:
+  #     - ./.mongo:/data/db
+  #   env_file:
+  #     - .env
+  #   ports:
+  #     - ${MONGO_PORT}:${MONGO_PORT}
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+  #     MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+  #   restart: always
 
   cache_redis:
     container_name: redis_cache
