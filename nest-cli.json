@@ -34,6 +34,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/dummy22-02/tsconfig.app.json"
       }
+    },
+    "dummy22-03": {
+      "type": "application",
+      "root": "apps/dummy22-03",
+      "entryFile": "main",
+      "sourceRoot": "apps/dummy22-03/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/dummy22-03/tsconfig.app.json"
+      }
     }
   }
 }
