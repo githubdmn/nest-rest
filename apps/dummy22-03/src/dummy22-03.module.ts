@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { env } from './conf';
 import { CardEntity, UserEntity } from './entities';
+import { CardModule } from './card/card.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { CardEntity, UserEntity } from './entities';
       synchronize: true,
       entities: [CardEntity, UserEntity],
     }),
+    CardModule,
   ],
   controllers: [],
   providers: [],
