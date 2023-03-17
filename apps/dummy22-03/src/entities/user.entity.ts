@@ -1,16 +1,31 @@
 import { customAlphabet } from 'nanoid';
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BeforeInsert,
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export default class User {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+  @Column({ unique: true })
   user_id: string;
-  @Column()
+  @Column({ unique: true })
   username: string;
   @Column()
   password: string;
+  @Column()
+  fullname: string;
+  @Column({ unique: true })
+  email: string;
+  @CreateDateColumn()
+  created_at: Date;
+  @UpdateDateColumn()
+  updated_at: Date;
   @BeforeInsert()
   generateId() {
     const nanoid = customAlphabet('1234567890', 5);

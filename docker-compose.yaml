@@ -27,6 +27,8 @@ services:
   #     - redis_cache
 
   postgres:
+    env_file:
+      - .env
     image: postgres:alpine
     # networks:
     #   - shared-network

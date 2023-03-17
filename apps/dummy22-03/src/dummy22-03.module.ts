@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { env } from './conf';
-import { CardEntity, UserEntity } from './entities';
+import * as Entity from './entities';
 import { CardModule } from './card/card.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -15,9 +16,10 @@ import { CardModule } from './card/card.module';
       username: env.pguser,
       password: env.pgpassword,
       synchronize: true,
-      entities: [CardEntity, UserEntity],
+      entities: [Entity.CardEntity, Entity.UserEntity],
     }),
     CardModule,
+    UserModule,
   ],
   controllers: [],
   providers: [],
