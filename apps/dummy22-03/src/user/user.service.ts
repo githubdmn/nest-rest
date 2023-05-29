@@ -3,6 +3,7 @@ import { UserEntity } from '../entities';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserDto } from './dto';
+import utils from './../utils';
 
 @Injectable()
 export class UserService {
@@ -11,8 +12,11 @@ export class UserService {
   ) {}
 
   async registerUser(user: Partial<UserDto>) {
+    console.log(user);
+    const hashedPassword = await utils.hashString(user.password);
     const newUser = this.userRepo.create({
       ...user,
+      password: hashedPassword,
       created_at: new Date(),
       updated_at: new Date(),
     });
