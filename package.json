@@ -21,7 +21,7 @@
     "test:e2e": "jest --config ./apps/application/test/jest-e2e.json"
   },
   "dependencies": {
-    "@liaoliaots/nestjs-redis": "^8.2.2",
+
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/mongoose": "^9.1.1",
