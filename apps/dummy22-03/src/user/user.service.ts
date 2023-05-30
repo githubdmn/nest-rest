@@ -12,7 +12,6 @@ export class UserService {
   ) {}
 
   async registerUser(user: Partial<UserDto>) {
-    console.log(user);
     const hashedPassword = await utils.hashString(user.password);
     const newUser = this.userRepo.create({
       ...user,
@@ -31,7 +30,7 @@ export class UserService {
 
   async getUser(id: string) {
     try {
-      const user = await this.userRepo.findOneBy({ user_id: id });
+      const user = await this.userRepo.findOneBy({ userId: id });
       return Object.is(user, null)
         ? `User with id ${id} does not exist.`
         : user;
@@ -42,7 +41,7 @@ export class UserService {
 
   async updateUser(id: string, newData: Partial<UserDto>) {
     try {
-      const user = await this.userRepo.findOneBy({ user_id: id });
+      const user = await this.userRepo.findOneBy({ userId: id });
       if (Object.is(user, null)) return `User with id ${id} does not exist.`;
       Object.assign(user, newData);
       return this.userRepo.save({
@@ -56,7 +55,7 @@ export class UserService {
 
   async deleteUser(id: string) {
     try {
-      const user = await this.userRepo.findOneBy({ user_id: id });
+      const user = await this.userRepo.findOneBy({ userId: id });
       return Object.is(user, null)
         ? `User with id ${id} does not exist.`
         : this.userRepo.remove(user);

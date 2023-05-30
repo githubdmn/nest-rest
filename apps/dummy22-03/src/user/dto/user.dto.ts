@@ -5,7 +5,7 @@ export default class UserDto {
   @Exclude()
   id: number;
   @IsString({ always: false })
-  user_id: string;
+  userId: string;
   @IsString()
   username: string;
   @IsString()
