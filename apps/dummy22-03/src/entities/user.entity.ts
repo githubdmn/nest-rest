@@ -6,14 +6,16 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+import Card from './card.entity';
 
 @Entity()
 export default class User {
   @PrimaryGeneratedColumn()
   id: number;
   @Column({ unique: true })
-  user_id: string;
+  userId: string;
   @Column({ unique: true })
   username: string;
   @Column()
@@ -29,6 +31,11 @@ export default class User {
   @BeforeInsert()
   generateId() {
     const nanoid = customAlphabet('1234567890', 5);
-    this.user_id = nanoid();
+    this.userId = nanoid();
   }
+  @OneToMany((type) => Card, (card) => card.userId, {
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE',
+  })
+  cards: Card[];
 }
