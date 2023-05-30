@@ -1,8 +1,11 @@
-import { IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export default class CreateCardDto {
   @IsString()
   title: string;
   @IsString()
-  body: string;
+  text: string;
+  @IsString()
+  @IsNotEmpty()
+  userId: string;
 }
