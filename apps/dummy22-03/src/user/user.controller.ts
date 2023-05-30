@@ -43,6 +43,7 @@ export class UserController {
   }
 
   @Delete(':id')
+  @SerializeExclude(UserDto)
   async delete(@Param('id') id: string) {
     return await this.userService.deleteUser(id);
   }
