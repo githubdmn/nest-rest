@@ -30,11 +30,9 @@ export class CardService {
   }
 
   async updateCard(card: UpdateCardDto) {
-    return await this.cardRepository.update(card.cardId, card);
-  }
-
-  async updatePartialCard(card: UpdateCardDto) {
-    return await this.cardRepository.update(card.cardId, card);
+    const cardOld = await this.getCard(card.cardId);
+    Object.assign(cardOld, card);
+    return await this.cardRepository.save(cardOld);
   }
 
   async deleteCard(cardId: string) {

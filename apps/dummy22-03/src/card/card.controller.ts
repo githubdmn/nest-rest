@@ -26,14 +26,14 @@ export class CardController {
     return await this.card.getCard(id);
   }
 
-  @Put('/:id')
+  @Put('')
   async updateCard(@Body() body: UpdateCardDto) {
     return await this.card.updateCard(body);
   }
 
-  @Patch('/:id')
+  @Patch('')
   async updatePartialCard(@Body() body: UpdateCardDto) {
-    return await this.card.updatePartialCard(body);
+    return await this.card.updateCard(body);
   }
 
   @Delete('/:id')
