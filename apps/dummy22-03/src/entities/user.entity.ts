@@ -33,9 +33,6 @@ export default class User {
     const nanoid = customAlphabet('1234567890', 5);
     this.userId = nanoid();
   }
-  @OneToMany((type) => Card, (card) => card.userId, {
-    onUpdate: 'CASCADE',
-    onDelete: 'CASCADE',
-  })
+  @OneToMany((type) => Card, (card) => card.userId)
   cards: Card[];
 }
