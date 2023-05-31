@@ -31,9 +31,10 @@ export default class Card {
     this.cardId = nanoid();
   }
   @ManyToOne((type) => User, (user) => user.userId, {
-    onUpdate: 'CASCADE',
-    onDelete: 'CASCADE',
+    cascade: true,
+    createForeignKeyConstraints: false,
+    eager: true,
   })
-  @JoinColumn({ name: 'user_id' })
+  @JoinColumn({ name: 'userId', referencedColumnName: 'userId' })
   userId: string;
 }
