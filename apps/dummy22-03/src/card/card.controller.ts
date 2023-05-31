@@ -1,13 +1,16 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   ParseIntPipe,
+  Patch,
   Post,
+  Put,
 } from '@nestjs/common';
 import { CardService } from './card.service';
-import { CreateCardDto } from './dto';
+import { CreateCardDto, UpdateCardDto } from './dto';
 
 @Controller('card')
 export class CardController {
@@ -18,8 +21,33 @@ export class CardController {
     return await this.card.createCard(body);
   }
 
-  @Get('')
+  @Get('/:id')
   async getCard(@Param('id') id: string) {
     return await this.card.getCard(id);
+  }
+
+  @Put('/:id')
+  async updateCard(@Body() body: UpdateCardDto) {
+    return await this.card.updateCard(body);
+  }
+
+  @Patch('/:id')
+  async updatePartialCard(@Body() body: UpdateCardDto) {
+    return await this.card.updatePartialCard(body);
+  }
+
+  @Delete('/:id')
+  async deleteCard(@Param('id') cardId: string) {
+    return await this.card.deleteCard(cardId);
+  }
+
+  @Get('cards/:id')
+  async getCards(@Param('id') user_id: string) {
+    return await this.card.getCards(user_id);
+  }
+
+  @Delete('cards/:id')
+  async deleteCards(@Param('id') userId: string) {
+    return await this.card.deleteCards(userId);
   }
 }
