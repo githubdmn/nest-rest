@@ -1,0 +1,27 @@
+{
+  "name": "nest-rest",
+  "version": "1.0.0",
+  "description": "research and testing features",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/githubdmn/nest-rest.git"
+  },
+  "keywords": [
+    "NestJS",
+    "NodeJS",
+    "Docker"
+  ],
+  "author": "Damjan Ivanovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/githubdmn/nest-rest/issues"
+  },
+  "homepage": "https://github.com/githubdmn/nest-rest#readme",
+  "dependencies": {
+    "yarn": "^1.22.19"
+  }
+}
