@@ -4,7 +4,9 @@
   "description": "research and testing features",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "nest build",
+    "start:dev": "nest start --watch",
+    "start:prod": "node ."
   },
   "repository": {
     "type": "git",
