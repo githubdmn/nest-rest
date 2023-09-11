@@ -2,7 +2,7 @@
   "name": "nest-rest",
   "version": "1.0.0",
   "description": "research and testing features",
-  "main": "index.js",
+  "main": "dist/src/main",
   "scripts": {
     "build": "nest build",
     "start:dev": "nest start --watch",
@@ -27,6 +27,7 @@
     "@nestjs/common": "^10.2.4",
     "@nestjs/core": "^10.2.4",
     "@nestjs/platform-express": "^10.2.4",
+    "@nestjs/schematics": "^10.0.2",
     "reflect-metadata": "^0.1.13",
     "yarn": "^1.22.19"
   },
