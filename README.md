@@ -6,5 +6,5 @@ nvm use
 npm init
 npm install yarn
 npx yarn
-npx yarn add reflect-metadata @nestjs/common @nestjs/core
+npx yarn add reflect-metadata @nestjs/common @nestjs/core @nestjs/platform-express
 npx yarn add -D typescript @types/node @nestjs/cli
